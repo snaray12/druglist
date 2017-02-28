@@ -3,8 +3,8 @@ var express  = require('express');
 var mongoose = require('mongoose');
 var morgan   = require('morgan');
 var bodyParser = require('body-parser');
-var druginfoController = require('./druginfoController');
-var drugsController = require('./drugsController');
+var druginfoController = require('./controller/druginfo');
+var drugsController = require('./controller/drugs');
 var database = require('./config/database');
 
 var app      = express();

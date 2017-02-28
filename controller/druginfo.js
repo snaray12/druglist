@@ -1,5 +1,5 @@
-var DrugInfo = require('./druginfoModel');
-var Drugs = require('./drugsModel');
+var DrugInfo = require('../model/druginfo');
+var Drugs = require('../model/drugs');
 
 var druglist = { 
     __v: false,
