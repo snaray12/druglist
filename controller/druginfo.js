@@ -43,7 +43,6 @@ var druginfo = {
 	},
 	findByCategory: function(req, res) {
 		console.log(req.params.category);
-		try {
 			if(cat[req.params.category] === undefined || cat[req.params.category] === 'undefined') {
 				DrugInfo.findOne({category: 'byetta'},druglist, function(err, druginfo){
 					if(err)
@@ -56,9 +55,6 @@ var druginfo = {
 					res.send(err)
 				res.json(druginfo);
 			});	
-		} catch(err) {
-			console.log(err);
-		}
 		
 	},
 	findByName: function(req, res) {
