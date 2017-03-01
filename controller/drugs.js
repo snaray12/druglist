@@ -1,4 +1,4 @@
-var Drugs = require('./drugsModel');
+var Drugs = require('../model/drugs');
 
 var druglist = { 
     __v: false,
