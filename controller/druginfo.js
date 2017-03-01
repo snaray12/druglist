@@ -43,18 +43,23 @@ var druginfo = {
 	},
 	findByCategory: function(req, res) {
 		console.log(req.params.category);
-		if(cat[req.params.category] === undefined || cat[req.params.category] === 'undefined') {
-			DrugInfo.findOne({category: 'byetta'},druglist, function(err, druginfo){
-			if(err)
-				res.send(err)
-			res.json(druginfo);
-		});	
+		try {
+			if(cat[req.params.category] === undefined || cat[req.params.category] === 'undefined') {
+				DrugInfo.findOne({category: 'byetta'},druglist, function(err, druginfo){
+					if(err)
+						res.send(err)
+					res.json(druginfo);
+				});	
+			}
+			DrugInfo.findOne({category: req.params.category},druglist, function(err, druginfo){
+				if(err)
+					res.send(err)
+				res.json(druginfo);
+			});	
+		} catch(err) {
+			console.log(err);
 		}
-		DrugInfo.findOne({category: req.params.category},druglist, function(err, druginfo){
-			if(err)
-				res.send(err)
-			res.json(druginfo);
-		});
+		
 	},
 	findByName: function(req, res) {
 		console.log(req.params.name);
